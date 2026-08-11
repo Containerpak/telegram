@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+
+export XDG_DATA_HOME="${HOME}/.local/share/cpak/telegram"
+mkdir -p "${XDG_DATA_HOME}"
+
+exec /opt/telegram/Telegram -workdir "${HOME}/.local/share/TelegramDesktop" "$@"
