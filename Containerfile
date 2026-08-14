@@ -7,9 +7,14 @@ ADD --checksum=sha256:e297771c75bd2f81d637a3234f83568be62092f67d16946be23895fa92
     https://raw.githubusercontent.com/telegramdesktop/tdesktop/v7.0.9/Telegram/Resources/art/icon512.png \
     /tmp/telegram.png
 
-FROM ghcr.io/containerpak/gtk:main
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends xz-utils && \
+    mkdir -p /out && \
+    tar -xJf /tmp/telegram.tar.xz --strip-components=1 -C /out
 
-COPY --from=source /tmp/telegram.tar.xz /tmp/telegram.tar.xz
+FROM ghcr.io/containerpak/gtk3:main
+
+COPY --from=source /out /opt/telegram
 COPY --from=source /tmp/telegram.png /usr/share/icons/hicolor/512x512/apps/telegram.png
 COPY org.telegram.desktop /usr/share/applications/org.telegram.desktop
 COPY --chmod=0755 telegram-desktop /usr/bin/telegram-desktop
@@ -17,8 +22,5 @@ COPY --chmod=0755 telegram-desktop /usr/bin/telegram-desktop
 RUN apt update && \
     apt install -y --no-install-recommends \
       libasound2t64 libgtk-3-0 libnss3 libxcb-keysyms1 libxcb-record0 \
-      libxkbcommon-x11-0 xdg-utils xz-utils && \
-    mkdir -p /opt/telegram && \
-    tar -xJf /tmp/telegram.tar.xz --strip-components=1 -C /opt/telegram && \
-    rm /tmp/telegram.tar.xz && \
+      libxkbcommon-x11-0 xdg-utils && \
     cpak-clean-junk
