@@ -1,26 +1,25 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Containerpak/cpak/v2/schema/manifest-v2.json",
-  "manifest_version": "2.0",
+  "$schema": "https://raw.githubusercontent.com/Containerpak/cpak/v2/schema/manifest-v3.json",
+  "manifest_version": "3.0",
   "name": "Telegram Desktop",
   "description": "Chat, call and share files with Telegram.",
   "version": "7.1.3",
-  "image": "ghcr.io/containerpak/telegram:main",
-  "binaries": ["/usr/bin/telegram-desktop"],
-  "desktop_entries": ["/usr/share/applications/org.telegram.desktop"],
+  "image": "ghcr.io/containerpak/telegram@sha256:fec46b843f7190c3d120fc526d87d32ca15cf19f610014890178bc6d30dbbfc0",
+  "binaries": [
+    "/usr/bin/telegram-desktop"
+  ],
+  "desktop_entries": [
+    "/usr/share/applications/org.telegram.desktop"
+  ],
   "dependencies": [],
   "addons": [],
   "idle_time": 0,
   "override": {
-    "socketX11": true,
     "socketWayland": true,
     "socketPulseAudio": true,
-    "socketSessionBus": true,
-    "socketSystemBus": false,
     "socketSshAgent": false,
     "socketCups": false,
     "socketGpgAgent": false,
-    "socketAtSpiBus": true,
-    "socketBluetooth": false,
     "deviceDri": true,
     "deviceKvm": false,
     "deviceShm": true,
@@ -33,7 +32,10 @@
     "notification": true,
     "openURI": true,
     "filesystem": [
-      {"path": "home", "access": "read-write"}
+      {
+        "path": "home",
+        "access": "read-write"
+      }
     ],
     "env": [],
     "network": true,
@@ -42,7 +44,6 @@
     "memoryMaxMB": 0,
     "cpuQuota": 0,
     "pidsMax": 0,
-    "asRoot": false,
-    "allowedHostCommands": []
+    "asRoot": false
   }
 }
