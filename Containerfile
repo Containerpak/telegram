@@ -1,10 +1,10 @@
 FROM ubuntu:26.04 AS source
 
-ADD --checksum=sha256:494c8245b129ef4a9887cacf827721791885f98d57f32459a8ce0c1bbaae3ebb \
-    https://github.com/telegramdesktop/tdesktop/releases/download/v7.1.4/tsetup.7.1.4.tar.xz \
+ADD --checksum=sha256:86158c9cda5e42310f8a65869a9329dabd60168e74be8a32d5972101ec345b2b \
+    https://github.com/telegramdesktop/tdesktop/releases/download/v7.1.5/tsetup.7.1.5.tar.xz \
     /tmp/telegram.tar.xz
 ADD --checksum=sha256:e297771c75bd2f81d637a3234f83568be62092f67d16946be23895fa92fa7119 \
-    https://raw.githubusercontent.com/telegramdesktop/tdesktop/v7.1.4/Telegram/Resources/art/icon512.png \
+    https://raw.githubusercontent.com/telegramdesktop/tdesktop/v7.1.5/Telegram/Resources/art/icon512.png \
     /tmp/telegram.png
 
 RUN apt-get update && \
