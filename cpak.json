@@ -3,7 +3,7 @@
   "manifest_version": "3.0",
   "name": "Telegram Desktop",
   "description": "Chat, call and share files with Telegram.",
-  "version": "7.1.5",
+  "version": "7.2.5",
   "image": "ghcr.io/containerpak/telegram@sha256:273210833f3d8840c07da9a01fa221e749bf33d646256824542f2b1b2a990fe7",
   "binaries": [
     "/usr/bin/telegram-desktop"
