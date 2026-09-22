@@ -4,7 +4,7 @@
   "name": "Telegram Desktop",
   "description": "Chat, call and share files with Telegram.",
   "version": "7.2.5",
-  "image": "ghcr.io/containerpak/telegram@sha256:a10ab64e8f0e836d18028a88779a53a130febc95d3fefabc217950302b2bce9f",
+  "image": "ghcr.io/containerpak/telegram@sha256:c1cf0618dc65148a52f323b3e227082d3e3c55aaf29fb6b4c7570205c5d35185",
   "binaries": [
     "/usr/bin/telegram-desktop"
   ],
