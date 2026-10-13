@@ -43,7 +43,9 @@
         "access": "read-write"
       }
     ],
-    "env": [],
+    "env": [
+      "QT_QPA_PLATFORM=wayland"
+    ],
     "network": true,
     "process": false,
     "userNamespaces": false,

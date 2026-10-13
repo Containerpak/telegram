@@ -55,7 +55,7 @@ jobs:
           sbom: true
 
       - name: Verify package
-        run: docker run --rm ghcr.io/containerpak/telegram:main sh -c 'test -x /opt/telegram/Telegram && test -x /usr/bin/telegram-desktop && grep -F "XDG_DATA_HOME" /usr/bin/telegram-desktop'
+        run: docker run --rm ghcr.io/containerpak/telegram:main sh -c 'test -x /opt/telegram/Telegram && test -x /usr/bin/telegram-desktop && grep -F "XDG_DATA_HOME" /usr/bin/telegram-desktop && ldconfig -p | grep -F "libwayland-server.so.0" && ldconfig -p | grep -F "libxcb-cursor.so.0"'
 
       - name: Publish summary
         run: echo "ghcr.io/containerpak/telegram@${{ steps.build.outputs.digest }}" >> "$GITHUB_STEP_SUMMARY"

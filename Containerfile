@@ -21,6 +21,7 @@ COPY --chmod=0755 telegram-desktop /usr/bin/telegram-desktop
 
 RUN apt update && \
     apt install -y --no-install-recommends \
-      libasound2t64 libgtk-3-0 libnss3 libxcb-keysyms1 libxcb-record0 \
+      libasound2t64 libgtk-3-0 libnss3 libwayland-server0 libxcb-cursor0 \
+      libxcb-keysyms1 libxcb-record0 \
       libxkbcommon-x11-0 xdg-utils && \
     cpak-clean-junk
